@@ -58,7 +58,10 @@ Coder-First EntityFramework
 - /ClientAPP/config/app-config.ts has the app and api endpoints to be configured manually.
 
 # Screenshots
+Home
 ![Home](/Screenshots/Home.jpg?raw=true "Home")
-![Register](/Screenshots/Register.jpg?raw=true "Register")
+Login
 ![Login](/Screenshots/Login.jpg?raw=true "Login")
+Register
+![Register](/Screenshots/Register.jpg?raw=true "Register")
 
