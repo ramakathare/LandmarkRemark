@@ -1,0 +1,68 @@
+html {
+  overflow: hidden;
+}
+
+.loaderWrapper {
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+
+.loader {
+  margin: 2px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 5px solid rgba(10, 255, 10, 0.2);
+  border-right: 5px solid rgba(10, 255, 10, 0.2);
+  border-bottom: 5px solid rgba(10, 255, 10, 0.2);
+  border-left: 5px solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.card {
+  border: 1px solid #DDD;
+  background: #FFF;
+  border-radius: 10px;
+  margin-top: 10%;
+  /*opacity:0.925;*/
+}
+
+.error-block {
+  color: #c37a7a;
+  display: list-item;
+  margin-left: 17px;
+}
+
+

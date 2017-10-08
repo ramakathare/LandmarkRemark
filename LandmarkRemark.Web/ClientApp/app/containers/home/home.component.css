@@ -1,0 +1,122 @@
+.fixed100 {
+  /*position: fixed;*/
+  width: 100%;
+  border-radius:0px;
+}
+.navbar-container {
+  padding-right: 10px;
+}
+
+/*.scroll {
+  height: 100%;
+}*/
+
+html, body, #map_canvas {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+
+
+.sebm-google-map, .sebm-google-map-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin-top:50px;
+}
+.lmbullseye {
+    position: relative;
+    top: 4px;
+    background-image: url(/assets/homeInverse.png);
+    text-indent: -9999px;
+    height: 39px;
+    width: 37px;
+    display: block;
+    background-repeat: no-repeat;
+}
+.navbar-brand {
+    padding-left: 50px;
+}
+.locationNotResolved {
+  animation: myfirst 5s linear infinite;
+  -moz-animation: myfirst 5s linear infinite; /* Firefox */
+  -webkit-animation: myfirst 5s linear infinite; /* Safari and Chrome */
+  -o-animation: myfirst 5s linear infinite; /* Opera */
+}
+@keyframes myfirst {
+    0%,50%,100% {
+        top: 2px;
+    }
+
+    25%,75% {
+        top: 4px;
+    }
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+  0%,50%,100% {
+    top:2px;
+  }
+
+  25%,75% {
+    top: 4px;
+  }
+}
+
+.locationResolveFailed{
+  color:red !important;
+}
+.marginTop5{
+  margin-top:5px;
+}
+
+hr{
+  margin-bottom:10px;
+}
+
+.navClass {
+  z-index: 2;
+}
+
+.listView {
+  background-color: white;
+  height: 100%;
+  overflow: auto;
+  top: 52px;
+  margin-bottom: 100px;
+  position: absolute;
+  z-index: 1;
+  padding: 0px;
+}
+.clearfix{
+  clear:both;
+}
+.listViewUl {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  margin-bottom: 52px;
+}
+.listViewLi {
+  padding: 10px 10px 0px 8px;
+  cursor:pointer;
+  
+}
+  .listViewLi:hover {
+    background-color: #eeeeee;
+  }
+.marginBottom0{
+  margin-bottom:0px;
+}
+.doubleWeight{
+  border-width:2px;
+}
+.customBlockQuote {
+    border-left: 5px solid #BBB;
+    background-color: aliceblue;
+}

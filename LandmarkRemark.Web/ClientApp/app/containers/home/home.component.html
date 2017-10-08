@@ -1,0 +1,132 @@
+<div>
+   <!--map component markup-->
+  <agm-map #myMap [latitude]="lat"
+           [longitude]="lng"
+           [zoom]="zoom"
+           [disableDefaultUI]="false"
+           [zoomControl]="false" [usePanning]="true"
+           (mapClick)="mapClicked($event)">
+      
+    <agm-marker *ngFor="let m of markers; let i = index"
+                (markerClick)="clickedMarker(m.id, i)"
+                [latitude]="m.lat" [iconUrl]="m.isHome ? iconUrl : (m.isOwner ? notesIconUrl:notesIconOtherUrl)"
+                [longitude]="m.lng"
+                [markerDraggable]="m.draggable"
+                (dragEnd)="markerDragEnd(m, $event)">
+
+      <agm-info-window>
+        <div>
+          <div >
+            <strong>{{m.address}}</strong><br>
+          </div>
+          
+          <div class="marginTop5">
+            <div class="pull-right">, {{formatDate(m.date)}}</div>
+            <div class="pull-right">{{m.user}}</div>
+          </div>
+          <hr />
+          <div>
+            <blockquote class="customBlockQuote" *ngIf="m.noteId > 0">
+              <span>{{m.notes}}</span>
+            </blockquote>
+          </div>
+          <div *ngIf="m.noteId <= 0">
+            <div >
+              <textarea name="notes" id="notes" #notes="ngModel"
+                        class="form-control input-lg"
+                        placeholder="Enter Notes"
+                        [(ngModel)]="m.notes"
+                        required
+                        maxlength="255"></textarea>
+              <small class="pull-right form-text text-muted"><code>{{notes.value?.length}}</code> of <code>255</code> characters (Extra character will be trimmed!)</small>
+            </div>
+            <div class="error-block" *ngIf="notes.invalid && (notes.dirty || notes.touched)">
+              <div *ngIf="notes.errors.required">
+                Notes is required.
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div>
+              <button class="pull-right btn btn-primary marginTop5" (click)="saveNotes(m)">Save Notes</button>
+            </div>
+          </div>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+
+
+<!--Nav bar markup-->
+
+<nav class="navbar navbar-inverse fixed100 navClass" role="navigation">
+  <div class="navbar-container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+              [attr.aria-expanded]="!isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div>
+        <a class="navbar-brand" href="javacript:void(0)">Landmark remark</a>
+        <a class="lmbullseye"
+           [ngClass]="[!locationResolved?'locationNotResolved':'',locationResolveFailed?'locationResolveFailed':'']"
+           title="Go to home" href="javascript:void(0)" #recenter
+           (click)="reCenter()">Goto Home Location</a>
+      </div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngClass]="{'in': !isCollapsed}">
+       
+        <div class="col-sm-3 col-md-3">
+        <form class="navbar-form" role="search">
+          <div class="input-group">
+            <input type="text" [(ngModel)]="filter" class="form-control form-controlHeight32" placeholder="Search for notes" name="q">
+            <div class="input-group-btn">
+              <button class="btn btn-default" (click)="filterNotes();" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default" (click)="filter='';filterNotes();" type="submit"><i class="glyphicon glyphicon-refresh"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+       <ul class="nav navbar-nav">
+            <li><a href="javascript:void(0)" (click)="listView = !listView;">List View</a></li>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Hi <span [innerHTML]="email"></span> !</a></li>
+        <li><a href="#" (click)="logout(); false">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--List view markup-->
+<div class="col-md-3 col-sm-6 col-xs-8 listView"  [hidden]="!listView">
+  <ul class="listViewUl">
+    <li [hidden]="m.isHome && m.noteId <= 0" (click)="listViewMarkerClicked(m)" class="listViewLi" [ngClass]="'listViewLi'+(i%2)" *ngFor="let m of markers; let i = index">
+      <div>
+        <div>
+          <strong>{{m.address}}</strong><br>
+        </div>
+        <div class="clearfix">
+          <div class="pull-right">{{m.user}}</div>
+          </div>
+        <div class="clearfix">
+          <div class="pull-right">{{formatDate(m.date)}}</div>
+        </div>
+        <div class="clearfix"></div>
+        <div>
+          <blockquote class="customBlockQuote">
+            <span>{{m.notes || '-- EMPTY --'}}</span>
+          </blockquote>
+        </div>
+      </div>
+      <hr class="marginBottom0 doubleWeight" />
+    </li>
+  </ul>
+</div>
+
+
