@@ -22,7 +22,7 @@ An application that allows users to save location based notes on a map.
     - Since this is a browser based application and a demo, to avoid negative scenarios like the user doesn't grant location access, or browser fails to detect current location, a static location is provided as a failproof.
     - By default, all the notes of the current user and other users are loaded. If search feature used, then only the notes are filtered. This is reflected in the list view as well.
     
-# Technology Stack used
+# Technology Stack
 
   - Backend 
   Micrisoft ASP.Net 4.5.2, Web API, MSSQL LocalDB, EntityFramework
@@ -53,6 +53,10 @@ Coder-First EntityFramework
 1 hour
 > Total - 8.5 hours.
 
-# Known issue - Limitations
+# Known issues - Limitations
 - Feedback messages for a failed login or registration could be more elaborate - 'Notes is required' validation message shows up by default even before the input is touched in IE. An issue with text input not being pristine in IE 11.
 - /ClientAPP/config/app-config.ts has the app and api endpoints to be configured manually.
+
+# Screenshots
+![Login](/Screenshots/Login.jpg?raw=true "Login")
+
