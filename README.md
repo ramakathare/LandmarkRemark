@@ -53,10 +53,11 @@ An application that allows users to save location based notes on a map.
 > Total - 8.5 hours.
 
 # Known issues - Limitations
-- Feedback messages for a failed login or registration could be more elaborate 
+- Feedback messages for a failed login or registration could be more elaborate. 
 - 'Notes is required' validation message shows up by default even before the input is touched in IE. An issue with text input not being pristine in IE 11.
 - LandmarRemark.Web -> /ClientAPP/config/app-config.ts has the app and api endpoints to be configured manually.
 - The demo application if run on chrome, does not ask for user consent to detect location thus current location is not retreived. A chrome security feature if application is not run on https.
+- The demo application is hosted on a Shared plan hence could be slow.
 
 # Screenshots
 Home
