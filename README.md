@@ -17,7 +17,8 @@ An application that allows users to save location based notes on a map.
     - User has the ability to search for a note based on contained text or user-name
     
 # Implicit Requirements!
-    - For accuracy, user should be able to move the marker of the current location
+    - For accuracy, user should be able to move the marker of the current location.
+    - Marker for the Notes authored by him can be moved as well. Thus location and address are updated.
     - User may not be able to pan through the entire map to see all notes at once. Hence, a list view that can be toggled may be required.
     - By clicking a notes on the list, User should be able to navigate to the location of the notes on the map.
     - User should be able to identify notes saved by him and others by a distinguished marker.
