@@ -44,12 +44,9 @@ An application that allows users to save location based notes on a map.
   Microsoft VS2017 offical Angular 4 Template,  Server side pre-rendering, AOT, Modular approach
 
 # Effort
-- Bacekend creating base framework with third party integrations and development
-3 hours
-- Frontend creating base framework with extended modules, Google maps integration, adding polyfills for IE, designing and development
-4.5 hours
-- Unit Testing and Functional Testing
-1 hour
+- Bacekend creating base framework with third party integrations and development - 3 hours
+- Frontend creating base framework with extended modules, Google maps integration, adding polyfills for IE, designing and development - 4.5 hours
+- Unit Testing and Functional Testing - 1 hour
 > Total - 8.5 hours.
 
 # Known issues - Limitations
