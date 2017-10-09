@@ -10,7 +10,6 @@ An application that allows users to save location based notes on a map.
 
 
 # Requirements..
-
     - User can see their current location on the map
     - User can save a short note at their current location
     . User can see notes that they have saved at the location they were saved on the map
@@ -38,18 +37,10 @@ An application that allows users to save location based notes on a map.
 
 # Framework & features
   - Backend 
-  Generic UnitofWork and Repository Pattern
-  NLog for logging
-  Unity IoC for Dependency Injection
- Microsoft ASP Identity Core for Authentication and Authorization
-Owin OAuth ready for external authentication providers
-Coder-First EntityFramework
+  Generic UnitofWork and Repository Pattern, NLog for logging, Unity IoC for Dependency Injection, Microsoft ASP Identity Core for Authentication and Authorization, Owin OAuth ready for external authentication providers, Coder-First EntityFramework
   
   - Frontend
-  Microsoft offical Angular Template
-  Server side pre-rendering
-  AOT
-  Modular approach
+  Microsoft VS2017 offical Angular 4 Template,  Server side pre-rendering, AOT, Modular approach
 
 # Effort
 - Bacekend creating base framework with third party integrations and development
@@ -61,8 +52,10 @@ Coder-First EntityFramework
 > Total - 8.5 hours.
 
 # Known issues - Limitations
-- Feedback messages for a failed login or registration could be more elaborate - 'Notes is required' validation message shows up by default even before the input is touched in IE. An issue with text input not being pristine in IE 11.
+- Feedback messages for a failed login or registration could be more elaborate 
+- 'Notes is required' validation message shows up by default even before the input is touched in IE. An issue with text input not being pristine in IE 11.
 - /ClientAPP/config/app-config.ts has the app and api endpoints to be configured manually.
+- The demo application if run on chrome, does not ask for your consent to detect location thus current location is not retreived. A chrome security feature if application is not run on https.
 
 # Screenshots
 Home
