@@ -17,15 +17,5 @@ namespace LandmarkRemark.Entities.Models
         public string User { get; set; }
         public DateTime Date { get; set; }
         public string Address { get; set; }
-        //date: new Date(),
-        //draggable: true,
-        //notes: "",
-        //lat: this.lat,
-        //lng: this.lng,
-        //user: this.authService.authentication.userName,
-        //isHome: true,
-        //address: "Not obtained yet.",
-        //isOwner: true,
-        //id:0
     }
 }
