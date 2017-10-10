@@ -5,12 +5,11 @@ An application that allows users to save location based notes on a map.
 ##### Demo
  - URL :  http://landmarkremarkapp.azurewebsites.net/home
  - Credentials 1 : userone@landmarkremark.com / 1234
- - Credentails 2 : usertwo@landmarkremark.com / 1234
+ - Credentials 2 : usertwo@landmarkremark.com / 1234
  
 
 
 # Requirements..
-
     - User can see their current location on the map
     - User can save a short note at their current location
     . User can see notes that they have saved at the location they were saved on the map
@@ -18,7 +17,8 @@ An application that allows users to save location based notes on a map.
     - User has the ability to search for a note based on contained text or user-name
     
 # Implicit Requirements!
-    - For accuracy, user should be able to move the marker of the current location
+    - For accuracy, user should be able to move the marker of the current location.
+    - Marker for the Notes authored by him can be moved as well. Thus location and address are updated.
     - User may not be able to pan through the entire map to see all notes at once. Hence, a list view that can be toggled may be required.
     - By clicking a notes on the list, User should be able to navigate to the location of the notes on the map.
     - User should be able to identify notes saved by him and others by a distinguished marker.
@@ -38,31 +38,23 @@ An application that allows users to save location based notes on a map.
 
 # Framework & features
   - Backend 
-  Generic UnitofWork and Repository Pattern
-  NLog for logging
-  Unity IoC for Dependency Injection
- Microsoft ASP Identity Core for Authentication and Authorization
-Owin OAuth ready for external authentication providers
-Coder-First EntityFramework
+  Generic UnitofWork and Repository Pattern, NLog for logging, Unity IoC for Dependency Injection, Microsoft ASP Identity Core for Authentication and Authorization, Owin OAuth ready for external authentication providers, Coder-First EntityFramework
   
   - Frontend
-  Microsoft offical Angular Template
-  Server side pre-rendering
-  AOT
-  Modular approach
+  Microsoft VS2017 offical Angular 4 Template,  Server side pre-rendering, AOT, Modular approach
 
 # Effort
-- Bacekend creating base framework with third party integrations and development
-3 hours
-- Frontend creating base framework with extended modules, Google maps integration, adding polyfills for IE, designing and development
-4.5 hours
-- Unit Testing and Functional Testing
-1 hour
+- Bacekend creating base framework with third party integrations and development - 3 hours
+- Frontend creating base framework with extended modules, Google maps integration, adding polyfills for IE, designing and development - 4.5 hours
+- Unit Testing and Functional Testing - 1 hour
 > Total - 8.5 hours.
 
 # Known issues - Limitations
-- Feedback messages for a failed login or registration could be more elaborate - 'Notes is required' validation message shows up by default even before the input is touched in IE. An issue with text input not being pristine in IE 11.
-- /ClientAPP/config/app-config.ts has the app and api endpoints to be configured manually.
+- Feedback messages for a failed login or registration could be more elaborate. 
+- 'Notes is required' validation message shows up by default even before the input is touched in IE. An issue with text input not being pristine in IE 11.
+- LandmarRemark.Web -> /ClientAPP/config/app-config.ts has the app and api endpoints to be configured manually.
+- The demo application if run on chrome, does not ask for user consent to detect location thus current location is not retreived. A chrome security feature if application is not run on https.
+- The demo application is hosted on a Shared plan hence could be slow.
 
 # Screenshots
 Home
