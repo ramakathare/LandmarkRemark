@@ -253,6 +253,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     //Helper to display formtted date on the notes
     formatDate(date:Date) {
-        return date.toLocaleDateString() + " " + date.toLocaleTimeString();
+        var dte = new Date(date); 
+        dte.setTime(dte.getTime() - dte.getTimezoneOffset()*60*1000);       
+        return dte.toLocaleString();
     }
 }
