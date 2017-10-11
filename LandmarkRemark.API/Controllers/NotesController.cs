@@ -91,7 +91,8 @@ namespace LandmarkRemark.API.Controllers
             {
                 success = true,
                 message = "NOTES_ADDED",
-                NoteId = note.NoteId
+                NoteId = note.NoteId,
+                date = note.Date
             });
         }
 

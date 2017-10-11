@@ -9,4 +9,5 @@ export interface INotes {
     address: string;
     noteId: number;
     isOwner: boolean;
+    isLocal: boolean;
 }

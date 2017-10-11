@@ -110,7 +110,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
             isHome: true,
             address: "Not obtained yet.",
             isOwner: true,
-            noteId:0
+            noteId: 0,
+            isLocal:true
         }
         this.markers.push(marker);
         this.addAddressToNotes(this.lat, this.lng, marker, function () {
@@ -135,7 +136,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
             isHome: false,
             address: "Not obtained yet.",
             isOwner: true,
-            noteId:0
+            noteId: 0,
+            isLocal:true
         }
         this.markers.push(marker);
         this.addAddressToNotes(lat, lng, marker);
@@ -245,7 +247,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
                     isHome: item.IsHome,
                     address: item.Address,
                     noteId: item.NoteId,
-                    isOwner: item.IsOwner
+                    isOwner: item.IsOwner,
+                    isLocal:false
                 });
             });
         });
