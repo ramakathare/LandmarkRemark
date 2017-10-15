@@ -36,7 +36,7 @@ namespace LandmarkRemark.API.Controllers
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
-
+        
         public ApplicationUserManager UserManager
         {
             get

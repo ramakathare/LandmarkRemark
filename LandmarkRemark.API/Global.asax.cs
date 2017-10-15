@@ -21,6 +21,8 @@ namespace LandmarkRemark.API
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //Add application exception logging filter to the Global Configuration.
+            //This will make sure that every acction will have this filter applied
             GlobalConfiguration.Configuration.Filters.Add(new ApplicationLevelExceptionHandlingFilterAttribute());
         }
     }

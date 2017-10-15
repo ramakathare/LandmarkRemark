@@ -16,7 +16,9 @@ using NLog;
 
 namespace LandmarkRemark.API.NLogger
 {
-    
+    /// <summary>
+    /// An exception filter attribute that can be used to handle exceptions at action level
+    /// </summary>
     public class ApplicationLevelExceptionHandlingFilterAttribute : ExceptionFilterAttribute
     {
         Logger logger = LogManager.GetCurrentClassLogger();
