@@ -16,12 +16,14 @@ namespace LandmarkRemark.Entities
     {
         static LandmarkRemarkContext()
         {
+            
             Database.SetInitializer<LandmarkRemarkContext>(new CreateDatabaseIfNotExists<LandmarkRemarkContext>());
         }
 
         public LandmarkRemarkContext()
             : base("Name=LandmarkRemarkConnection")
         {
+            base.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Note> Notes { get; set; }
