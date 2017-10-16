@@ -283,6 +283,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201710081614410_InitialCreate.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201710081614410_InitialCreate.Designer.cs">
+      <DependentUpon>201710081614410_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201710161232371_Migration_ApplicationDbContext.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201710161232371_Migration_ApplicationDbContext.Designer.cs">
+      <DependentUpon>201710161232371_Migration_ApplicationDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -383,6 +392,14 @@
       <Project>{113ef85b-446d-49db-9cbe-2303d365c971}</Project>
       <Name>LandmarkRemark.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201710081614410_InitialCreate.resx">
+      <DependentUpon>201710081614410_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201710161232371_Migration_ApplicationDbContext.resx">
+      <DependentUpon>201710161232371_Migration_ApplicationDbContext.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

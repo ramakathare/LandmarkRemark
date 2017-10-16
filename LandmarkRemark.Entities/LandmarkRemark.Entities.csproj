@@ -61,6 +61,15 @@
   <ItemGroup>
     <Compile Include="DataContext\LandmarkRemarkContext.cs" />
     <Compile Include="Map\NoteMap.cs" />
+    <Compile Include="Migrations\LandmarkRemarkContext\201710081613386_InitialCreate.cs" />
+    <Compile Include="Migrations\LandmarkRemarkContext\201710081613386_InitialCreate.Designer.cs">
+      <DependentUpon>201710081613386_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\LandmarkRemarkContext\201710161232046_Migration_LandmarkRemarkContext.cs" />
+    <Compile Include="Migrations\LandmarkRemarkContext\201710161232046_Migration_LandmarkRemarkContext.Designer.cs">
+      <DependentUpon>201710161232046_Migration_LandmarkRemarkContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\LandmarkRemarkContext\Configuration.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +78,14 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\LandmarkRemarkContext\201710081613386_InitialCreate.resx">
+      <DependentUpon>201710081613386_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\LandmarkRemarkContext\201710161232046_Migration_LandmarkRemarkContext.resx">
+      <DependentUpon>201710161232046_Migration_LandmarkRemarkContext.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
