@@ -25,12 +25,15 @@
             <div class="pull-right">{{m.user}}</div>
           </div>
           <hr />
-          <div>
-            <blockquote class="customBlockQuote" *ngIf="m.noteId > 0">
+
+          <div *ngIf="!m.Editable && m.noteId > 0">
+            <blockquote  class="customBlockQuote" >
               <span>{{m.notes}}</span>
             </blockquote>
+              <button class="pull-right btn btn-primary marginTop5" (click)="m.Editable = true">Edit Notes</button>
           </div>
-          <div *ngIf="m.noteId <= 0">
+
+          <div *ngIf="m.noteId <= 0 || m.Editable">
             <div >
               <textarea name="notes" id="notes" #notes="ngModel"
                         class="form-control input-lg"
@@ -40,6 +43,7 @@
                         maxlength="255"></textarea>
               <small class="pull-right form-text text-muted"><code>{{notes.value?.length}}</code> of <code>255</code> characters (Extra character will be trimmed!)</small>
             </div>
+
             <div class="error-block" *ngIf="notes.invalid && (notes.dirty || notes.touched)">
               <div *ngIf="notes.errors.required">
                 Notes is required.

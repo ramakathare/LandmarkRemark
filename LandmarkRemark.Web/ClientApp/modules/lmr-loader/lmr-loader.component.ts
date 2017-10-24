@@ -5,7 +5,7 @@
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
-import { CcaLoaderService } from './cca-loader.service';
+import { LmrLoaderService } from './lmr-loader.service';
 
 
 import { Subject } from 'rxjs/Subject';
@@ -13,9 +13,9 @@ import { Subject } from 'rxjs/Subject';
 const DEFAULT_INDICATOR_DELAY = 500;
 
 @Component({
-    selector: 'cca-loading-indicator',
-    templateUrl: './cca-loader.component.html',
-    styleUrls: ['./cca-loader.component.css'],
+    selector: 'lmr-loading-indicator',
+    templateUrl: './lmr-loader.component.html',
+    styleUrls: ['./lmr-loader.component.css'],
     //animations: [
     //    trigger('flyInOut', [
 
@@ -39,7 +39,7 @@ const DEFAULT_INDICATOR_DELAY = 500;
     //    ])
     //]
 })
-export class CcaLoader implements OnInit, OnDestroy {
+export class LmrLoader implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
@@ -49,9 +49,9 @@ export class CcaLoader implements OnInit, OnDestroy {
     @Input()
     indicatorDelay: number;
 
-    constructor(private ccaloaderservice: CcaLoaderService) {
+    constructor(private Lmrloaderservice: LmrLoaderService) {
         let that = this;
-        this.subscription = this.ccaloaderservice.loaderObservable$.subscribe((res) => {
+        this.subscription = this.Lmrloaderservice.loaderObservable$.subscribe((res) => {
             if (res === true)
                 that.startLoader();
             else

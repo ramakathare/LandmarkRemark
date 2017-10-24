@@ -5,14 +5,14 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
-import { CcaNotiService } from './cca-noti.service';
+import { LmrNotiService } from './lmr-noti.service';
 
 const DEFAULT_TIMEOUT = 3000;
 
 @Component({
-    selector: 'cca-noti-indicator',
-    templateUrl: './cca-noti.component.html',
-    styleUrls: ['./cca-noti.component.css'],
+    selector: 'lmr-noti-indicator',
+    templateUrl: './lmr-noti.component.html',
+    styleUrls: ['./lmr-noti.component.css'],
     animations: [
         // Animation example
         // Triggered in the ngFor with [@flyInOut]
@@ -28,7 +28,7 @@ const DEFAULT_TIMEOUT = 3000;
         ])
     ]
 })
-export class CcaNoti implements OnInit, OnDestroy {
+export class LmrNoti implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
@@ -37,13 +37,13 @@ export class CcaNoti implements OnInit, OnDestroy {
 
     public notifications: any[];
 
-    constructor(private ccanotiservice: CcaNotiService) {
+    constructor(private Lmrnotiservice: LmrNotiService) {
         this.notifications = [];
     }
 
     ngOnInit() {
         let that = this;
-        this.subscription = this.ccanotiservice.notifyObservable$.subscribe((noti) => {
+        this.subscription = this.Lmrnotiservice.notifyObservable$.subscribe((noti) => {
             that.checkin(noti);
         });
     }

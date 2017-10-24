@@ -3,14 +3,14 @@ import { Http, URLSearchParams } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { INotes } from '../../models';
 import { Observable } from 'rxjs/Observable';
-import { CcaHttp } from '../../../modules/cca-http/cca-http.service';
+import { LmrHttp } from '../../../modules/lmr-http/lmr-http.service';
 import { APP_CONFIG, IAppConfig } from '../../../config';
 
 @Injectable()
 export class NoteService {
 
     constructor(
-        private chttp: CcaHttp,
+        private chttp: LmrHttp,
         @Inject(APP_CONFIG) private config: IAppConfig) {
 
     }

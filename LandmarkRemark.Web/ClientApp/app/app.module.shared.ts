@@ -8,10 +8,10 @@ import { CookieService } from 'angular2-cookie/services';
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 
-import { CcaHelper } from '../modules/cca-helper';
-import { CcaHttpModule } from '../modules/cca-http';
-import { CcaNotiModule } from '../modules/cca-noti';
-import { CcaLoaderModule } from '../modules/cca-loader';
+import { LmrHelper } from '../modules/lmr-helper';
+import { LmrHttpModule } from '../modules/lmr-http';
+import { LmrNotiModule } from '../modules/lmr-noti';
+import { LmrLoaderModule } from '../modules/lmr-loader';
 
 
 
@@ -51,7 +51,7 @@ export function createTranslateLoader(http: Http,appConfig) {
         ReactiveFormsModule,
         BrowserModule,
         Ng2BootstrapModule.forRoot(), // You could also split this up if you don't want the Entire Module imported
-        CcaHttpModule, CcaNotiModule, CcaLoaderModule,
+        LmrHttpModule, LmrNotiModule, LmrLoaderModule,
         // i18n support
         TranslateModule.forRoot({
             loader: {
@@ -105,7 +105,7 @@ export function createTranslateLoader(http: Http,appConfig) {
         ])
     ],
     providers: [
-        CcaHelper,
+        LmrHelper,
         { provide: APP_CONFIG, useValue: AppConfig },
         TranslateModule,
         LinkService,

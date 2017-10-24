@@ -10,4 +10,5 @@ export interface INotes {
     noteId: number;
     isOwner: boolean;
     isLocal: boolean;
+    Editable?: boolean;
 }

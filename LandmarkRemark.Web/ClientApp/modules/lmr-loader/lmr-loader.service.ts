@@ -2,7 +2,7 @@
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class CcaLoaderService {
+export class LmrLoaderService {
     constuctor() { }
 
     private loader = new Subject<any>();

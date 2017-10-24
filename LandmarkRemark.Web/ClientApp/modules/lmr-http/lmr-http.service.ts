@@ -22,7 +22,7 @@ export interface IQueryObject {
 }
 
 @Injectable()
-export class CcaHttp {
+export class LmrHttp {
 
     private isServer = isPlatformServer(this.platformId);
     private _http: Http;

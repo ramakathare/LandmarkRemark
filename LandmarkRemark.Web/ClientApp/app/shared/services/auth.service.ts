@@ -1,9 +1,9 @@
 import { Injectable, Inject } from '@angular/core';
 import { CookieService } from 'angular2-cookie/services';
 import { APP_CONFIG, IAppConfig } from '../../../config';
-import { CcaHttp } from '../../../modules/cca-http'
+import { LmrHttp } from '../../../modules/lmr-http'
 import { Headers, RequestOptions } from '@angular/http';
-import { CcaNotiService } from '../../../modules/cca-noti'
+import { LmrNotiService } from '../../../modules/lmr-noti'
 
 export interface IAuthentication {
     isAuth: boolean,
@@ -16,8 +16,8 @@ export interface IAuthentication {
 export class AuthService {
 
     constructor(private _cookieService: CookieService,
-        private chttp: CcaHttp,
-        private ccanotiservice: CcaNotiService,
+        private chttp: LmrHttp,
+        private Lmrnotiservice: LmrNotiService,
         @Inject(APP_CONFIG) private config: IAppConfig
     ) {
 
@@ -65,7 +65,7 @@ export class AuthService {
         //Once logged reset authentication, remove data from cookies and show message
         //this.resetAuthentication();
         //this._cookieService.remove('authorizationData');
-        if (!isSilent) this.ccanotiservice.info("You have successfully logged off.");
+        if (!isSilent) this.Lmrnotiservice.info("You have successfully logged off.");
     }
 
     //logout service

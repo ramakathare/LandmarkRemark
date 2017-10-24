@@ -6,7 +6,7 @@
   opacity: 0;
   transition: .5s ease-in-out all;
 }
-.cca-loading-indicator {
+.lmr-loading-indicator {
   position: fixed;
   background: rgba(0, 0, 0, 0.3);
   width: 100%;

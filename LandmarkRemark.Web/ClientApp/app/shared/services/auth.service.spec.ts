@@ -5,9 +5,9 @@ import { AuthService } from './auth.service';
 
 import { APP_CONFIG, IAppConfig, AppConfig } from '../../../config';
 import { CookieService } from 'angular2-cookie/services';
-import { CcaNotiService } from '../../../modules/cca-noti';
-import { CcaHttpModule } from '../../../modules/cca-http';
-import { CcaHttp } from '../../../modules/cca-http';
+import { LmrNotiService } from '../../../modules/lmr-noti';
+import { LmrHttpModule } from '../../../modules/lmr-http';
+import { LmrHttp } from '../../../modules/lmr-http';
 import { XHRBackend, BaseRequestOptions, Http, ResponseOptions, Response } from "@angular/http";
 import { MockConnection } from "@angular/http/testing";
 
@@ -15,12 +15,12 @@ import { MockConnection } from "@angular/http/testing";
 describe('AuthService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [CcaHttpModule],
+            imports: [LmrHttpModule],
             providers: [
                 { provide: APP_CONFIG, useValue: AppConfig },
                 AuthService,
                 CookieService,
-                CcaNotiService,
+                LmrNotiService,
                 MockBackend,
                 BaseRequestOptions,
                 {

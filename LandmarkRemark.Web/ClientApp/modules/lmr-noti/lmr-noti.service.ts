@@ -2,7 +2,7 @@
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class CcaNotiService {
+export class LmrNotiService {
     constuctor() { }
 
     public notify = new Subject<any>();

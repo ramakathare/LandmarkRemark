@@ -5,6 +5,9 @@ export let APP_CONFIG = new OpaqueToken("app.config");
 
 //Static config variables used across app
 export const AppConfig: IAppConfig = {
+
+    //TODO : separate configs for dev and production env
+
     //apiEndpoint: "http://landmarkremarkapi.azurewebsites.net",
     //appEndpoint: "http://landmarkremarkapp.azurewebsites.net",
     apiEndpoint:"http://localhost:42055",

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService, MapsService, NoteService } from '../../shared/services';
 import { APP_CONFIG, IAppConfig } from '../../../config';
 import { isPlatformBrowser } from '@angular/common';
-import { CcaNotiService } from '../../../modules/cca-noti'
+import { LmrNotiService } from '../../../modules/lmr-noti'
 import { MapsAPILoader, AgmMap } from '@agm/core';
 import { INotes } from '../../models';
 
@@ -21,10 +21,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     public isCollapsed: boolean = true;
     public title: string = 'Angular 4.0 Universal & ASP.NET Core 2.0 advanced starter-kit';
-    public email:string = "";
+    public email: string = "";
     public lat: number;
     public lng: number;
-    public iconUrl:string;
+    public iconUrl: string;
     public notesIconUrl: string;
     public notesIconOtherUrl: string;
     public filter: string;
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     public locationResolveFailed: boolean;
     // google maps zoom level
     public zoom: number = 15;
+    public Editable: boolean = false;
 
     markers: INotes[] = []
 
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         private router: Router,
         @Inject(PLATFORM_ID) private platformId: Object,
         @Inject(APP_CONFIG) private config: IAppConfig,
-        private ccanotiservice: CcaNotiService,
+        private Lmrnotiservice: LmrNotiService,
         private _loader: MapsAPILoader,
         private _zone: NgZone,
         private mapService: MapsService,
@@ -65,7 +66,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
     }
     ngAfterViewInit() {
-        
+
     }
     //Log out from home
     logout() {
@@ -111,7 +112,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
             address: "Not obtained yet.",
             isOwner: true,
             noteId: 0,
-            isLocal:true
+            isLocal: true
         }
         this.markers.push(marker);
         this.addAddressToNotes(this.lat, this.lng, marker, function () {
@@ -137,14 +138,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
             address: "Not obtained yet.",
             isOwner: true,
             noteId: 0,
-            isLocal:true
+            isLocal: true
         }
         this.markers.push(marker);
         this.addAddressToNotes(lat, lng, marker);
     }
 
     //To get the formatted address from the lat and lng and add to the notes.
-    addAddressToNotes(lat: number, lng: number,marker:INotes,callback?:()=>void) {
+    addAddressToNotes(lat: number, lng: number, marker: INotes, callback?: () => void) {
         this.mapService.getGeocoding(lat, lng).subscribe((result) => {
             if (result != null) {
                 this.locationResolved = true;
@@ -212,15 +213,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     updateNotes(m: INotes) {
         this.noteService.updateNote(m).subscribe((response) => {
             console.log(response);
+            m.Editable = false;
         });
     }
 
     //add new notes to the server
     saveNotes(m: INotes) {
+        if (m.noteId > 0) this.updateNotes(m);
+        else this.addNotes(m);
+    }
+
+    addNotes(m: INotes) {
         this.noteService.addNote(m).subscribe((response) => {
             //assign the identity of the new notes to the local notes object
             m.noteId = response.NoteId;
-            console.log(response);
         });
     }
 
@@ -234,7 +240,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     //Get all notes from server. If the filter is null all the notes are retrieved
     //else notes filtered are retrieved
-    getMyNotes(filter?:string) {
+    getMyNotes(filter?: string) {
         this.noteService.getNotes(filter || "").subscribe((response) => {
             response.forEach((item, index, array) => {
                 this.markers.push({
@@ -248,16 +254,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
                     address: item.Address,
                     noteId: item.NoteId,
                     isOwner: item.IsOwner,
-                    isLocal:false
+                    isLocal: false
                 });
             });
         });
     }
 
     //Helper to display formtted date on the notes
-    formatDate(date:Date) {
-        var dte = new Date(date); 
-        dte.setTime(dte.getTime() - dte.getTimezoneOffset()*60*1000);       
+    formatDate(date: Date) {
+        var dte = new Date(date);
+        dte.setTime(dte.getTime() - dte.getTimezoneOffset() * 60 * 1000);
         return dte.toLocaleString();
     }
 }

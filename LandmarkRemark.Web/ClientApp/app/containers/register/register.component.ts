@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
-import { CcaNotiService } from '../../../modules/cca-noti';
+import { LmrNotiService } from '../../../modules/lmr-noti';
 import { AuthService } from '../../shared/services'
 
 import { PasswordValidation } from '../../shared/validators/password.validation';
@@ -30,7 +30,7 @@ export class RegisterComponent {
     }
 
     constructor(
-        private ccaNotiService:CcaNotiService,
+        private LmrNotiService:LmrNotiService,
         private authService: AuthService,
         private router: Router,
         private formBuilder: FormBuilder,
@@ -59,7 +59,7 @@ export class RegisterComponent {
         const formModel: IRegisterModel = this.registerForm.value as IRegisterModel;
         
         this.authService.saveRegistration(formModel).subscribe((response) => {
-            this.ccaNotiService.success("Proceed to Login", "Registered successfully.");
+            this.LmrNotiService.success("Proceed to Login", "Registered successfully.");
             this.ngOnChanges();
             this.router.navigate(['/login']);
         });

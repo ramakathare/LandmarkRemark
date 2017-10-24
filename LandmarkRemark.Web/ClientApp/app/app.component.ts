@@ -7,9 +7,9 @@ import { isPlatformServer } from '@angular/common';
 // i18n support
 import { TranslateService } from '@ngx-translate/core';
 import { LinkService } from './shared/services';
-import { CcaHttp, HttpHeader } from '../modules/cca-http';
-import { CcaLoaderService } from '../modules/cca-loader';
-import { CcaNotiService } from '../modules/cca-noti';
+import { LmrHttp, HttpHeader } from '../modules/lmr-http';
+import { LmrLoaderService } from '../modules/lmr-loader';
+import { LmrNotiService } from '../modules/lmr-noti';
 import { BrowserModule } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
@@ -37,11 +37,11 @@ export class AppComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private title: Title,
         private meta: Meta,
-        private chttp: CcaHttp,
+        private chttp: LmrHttp,
         public translate: TranslateService,
         private linkService: LinkService,
-        private ccaloaderservice: CcaLoaderService,
-        private ccanotiservice: CcaNotiService,
+        private Lmrloaderservice: LmrLoaderService,
+        private Lmrnotiservice: LmrNotiService,
         private authService: AuthService,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
@@ -99,7 +99,7 @@ export class AppComponent implements OnInit {
 
                     //if the request has header noLoader no need to show the loader
                     if (!headers.find(p => p.key == "noLoader"))
-                        that.ccaloaderservice.setLoader(true);
+                        that.Lmrloaderservice.setLoader(true);
 
                     //if the user authentication is already present send the token to the server
                     if (that.authService.authentication.isAuth) {
@@ -120,7 +120,7 @@ export class AppComponent implements OnInit {
 
                     //if the header has noLoader no need to stop the loader
                     if (!headers.find(p => p.key == "noLoader"))
-                        that.ccaloaderservice.setLoader(false);
+                        that.Lmrloaderservice.setLoader(false);
 
                     //if the header has noNoti no need to show any notifications
                     if (!headers.find(p => p.key == "noNoti")) {
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit {
                         } else {
                             response.statusText = response.statusText || "Unknown error has occured.";
                         }
-                        that.ccanotiservice.error(response.statusText);
+                        that.Lmrnotiservice.error(response.statusText);
 
                     }
 
@@ -145,10 +145,10 @@ export class AppComponent implements OnInit {
                 return new Promise((resolve, reject) => {
 
                     if (!headers.find(p => p.key == "noLoader"))
-                        that.ccaloaderservice.setLoader(false);
+                        that.Lmrloaderservice.setLoader(false);
                     if (!headers.find(p => p.key == "noNoti")) {
                         if (response.message) {
-                            that.ccanotiservice.success(response.message);
+                            that.Lmrnotiservice.success(response.message);
                         }
                     }
                     resolve(response);
@@ -169,7 +169,7 @@ export class AppComponent implements OnInit {
             .mergeMap(route => route.data)
             .subscribe((event) => {
 
-                this.ccaloaderservice.setLoader(true);
+                this.Lmrloaderservice.setLoader(true);
             });
     }
 
@@ -185,7 +185,7 @@ export class AppComponent implements OnInit {
             .filter(route => route.outlet === 'primary')
             .mergeMap(route => route.data)
             .subscribe((event) => {
-                this.ccaloaderservice.setLoader(false);
+                this.Lmrloaderservice.setLoader(false);
             });
     }
 
@@ -201,7 +201,7 @@ export class AppComponent implements OnInit {
             .filter(route => route.outlet === 'primary')
             .mergeMap(route => route.data)
             .subscribe((event) => {
-                this.ccaloaderservice.setLoader(false);
+                this.Lmrloaderservice.setLoader(false);
             });
     }
 
@@ -219,7 +219,7 @@ export class AppComponent implements OnInit {
             .subscribe((event) => {
 
                 this._setMetaAndLinks(event);
-                this.ccaloaderservice.setLoader(false);
+                this.Lmrloaderservice.setLoader(false);
             });
     }
 

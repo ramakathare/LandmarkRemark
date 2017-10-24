@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
-import { CcaNotiService } from '../../../modules/cca-noti';
+import { LmrNotiService } from '../../../modules/lmr-noti';
 import { AuthService } from '../../shared/services'
 
 
@@ -29,7 +29,7 @@ export class LoginComponent {
     }
 
     constructor(
-        private ccaNotiService: CcaNotiService,
+        private LmrNotiService: LmrNotiService,
         private authService: AuthService,
         private router: Router,
         private formBuilder: FormBuilder,

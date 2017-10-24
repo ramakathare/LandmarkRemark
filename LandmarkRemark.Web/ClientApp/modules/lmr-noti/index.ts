@@ -2,8 +2,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
 
-import { CcaNotiService } from './cca-noti.service';
-import { CcaNoti } from './cca-noti.component';
+import { LmrNotiService } from './lmr-noti.service';
+import { LmrNoti } from './lmr-noti.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -20,11 +20,11 @@ export function createTranslateLoader(http: Http, appConfig) {
     return new TranslateHttpLoader(http, `${appConfig.appEndpoint}/assets/i18n/`, '.json');
 }
 
-export * from './cca-noti.service';
+export * from './lmr-noti.service';
 
 @NgModule({
-    exports: [CcaNoti],
-    declarations: [CcaNoti],
+    exports: [LmrNoti],
+    declarations: [LmrNoti],
     imports: [CommonModule,// i18n support
         TranslateModule.forRoot({
             loader: {
@@ -33,7 +33,7 @@ export * from './cca-noti.service';
                 deps: [Http,APP_CONFIG]
             }
         }),],
-    providers: [CcaNotiService, { provide: APP_CONFIG, useValue: AppConfig }]
+    providers: [LmrNotiService, { provide: APP_CONFIG, useValue: AppConfig }]
 })
-export class CcaNotiModule {
+export class LmrNotiModule {
 }
