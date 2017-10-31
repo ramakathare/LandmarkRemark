@@ -2,7 +2,7 @@
 
 An application that allows users to save location based notes on a map. 
 
-##### Demo
+##### Demo (Update : The application is not hosted online. It's taken down.)
  - URL :  http://landmarkremarkapp.azurewebsites.net/home
  - Credentials 1 : userone@landmarkremark.com / 1234
  - Credentials 2 : usertwo@landmarkremark.com / 1234
